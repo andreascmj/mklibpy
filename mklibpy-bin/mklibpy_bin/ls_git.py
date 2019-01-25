@@ -118,7 +118,7 @@ class LsGit(object):
     @cached_property
     def is_gnu(self):
         try:
-            system_call(['ls', '--version'], stderr=subprocess.DEVNULL)
+            system_call(['gls', '--version'], stderr=subprocess.DEVNULL)
         except subprocess.CalledProcessError:
             return False
         else:
@@ -135,7 +135,7 @@ class LsGitProcess(object):
     def __init__(self, parent, args):
         self.__parent = parent
         self.__args = args
-        self.__cmd = ['ls'] + list(self.__args)
+        self.__cmd = ['gls'] + list(self.__args)
 
         self.__flags = None
         self.__options = None
